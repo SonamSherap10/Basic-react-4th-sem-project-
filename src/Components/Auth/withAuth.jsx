@@ -8,9 +8,8 @@ const withAuth = (WrappedComponent, requiredRole) => {
     useEffect(() => {
       const token = localStorage.getItem('token');
       const role = localStorage.getItem('role');
-      const isSignedIn = localStorage.getItem('isSignedIn');
 
-      if (!token || !role || !isSignedIn || role !== requiredRole || isSignedIn !== 'true') {
+      if (!token || !role  || role !== requiredRole ) {
         alert('please sign in or use other account')
         navigate('/login');
       }
