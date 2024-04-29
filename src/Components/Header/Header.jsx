@@ -32,7 +32,6 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
-    localStorage.removeItem('isSignedIn');
     alert("Logged out successfully")
     navigate('/login');
   };
