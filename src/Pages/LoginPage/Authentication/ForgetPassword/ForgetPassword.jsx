@@ -34,7 +34,6 @@ const ForgetPassword = () => {
   const handleChange = async (e) => {
     e.preventDefault();
     const otp = parseInt(document.getElementById('otp').value);
-    console.log(otp, email); 
     
     try {
       const verify = await axios.post("http://localhost:7878/auth/otpCheck", {

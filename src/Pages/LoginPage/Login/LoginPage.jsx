@@ -18,7 +18,6 @@ const LoginPage = () => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       alert("Login successful")
     
       localStorage.setItem('token', data.token);

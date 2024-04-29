@@ -7,6 +7,11 @@
   background-color: #fff;
 }
 
+h2{
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
 .login-container h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -14,6 +19,7 @@
 
 .form-group {
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
 label {
@@ -22,12 +28,18 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="number"]
+{
   width: 100%;
-  padding: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  
 }
 
 .error-message {

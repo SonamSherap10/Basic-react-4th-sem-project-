@@ -56,7 +56,7 @@ const ChangePassword = () => {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            className="form-input"
+            className="form-inputt"
             required
           />
         </div>
