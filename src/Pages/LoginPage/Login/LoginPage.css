@@ -98,12 +98,6 @@ button {
 }
 
 
-
-button:hover {
-  background-color: #730aa2;
-  box-shadow: 2px 2px 2px black;
-}
-
 .forgot-password {
   display: block;
   text-align: center;

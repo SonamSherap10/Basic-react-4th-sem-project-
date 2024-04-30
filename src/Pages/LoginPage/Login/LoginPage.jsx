@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
 import { useNavigate } from 'react-router-dom';
-const LoginPage = () => {
+
+const LoginPage = ({ setUserRole }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,8 +23,10 @@ const LoginPage = () => {
     
       localStorage.setItem('token', data.token);
       localStorage.setItem('role',data.role);
-
+      
+      setUserRole(data.role);
       navigate('/');
+
     } else {
       setError('Invalid email or password');
     }
@@ -40,7 +43,10 @@ const LoginPage = () => {
 
   return (
   <>
-   <button type='button' className='back-btn' onClick={()=>navigate("/")}>Go Back</button>
+   <button type='button' className='back-btn' onClick={()=>{
+    setUserRole(localStorage.getItem('role')) 
+    navigate("/")
+  }}>Go Back</button>
     <div className="login-container">
       <h2>Login</h2>
       {error && <p className="error-message">{error}</p>}
