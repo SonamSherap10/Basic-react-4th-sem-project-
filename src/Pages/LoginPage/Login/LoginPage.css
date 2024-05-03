@@ -47,7 +47,7 @@ input[type="number"]
   margin-bottom: 10px;
 }
 
-button {
+.login , .forgot-password {
    width: 100%;
   padding: 10px;
   background-color: black;
@@ -59,7 +59,7 @@ button {
   transition: background-color 0.3s;
 }
 
-.back-btn{
+.backk{
   width: auto;
   padding: 10px;
   background-color: black;

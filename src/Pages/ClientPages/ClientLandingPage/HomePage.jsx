@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import Header from "../../../Components/Header/Header"
+import Footer from '../../../Components/footer/Footer';
 
 const HomePage = () => {
   return (
@@ -45,12 +46,8 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-
-      <footer>
-        <div className="footer-container">
-          <p>&copy; 2024 Fix at Your Fingertips. All rights reserved.</p>
-        </div>
-      </footer>
+     <Footer/>
+   
     </div>
   );
 };

@@ -51,7 +51,7 @@ const Header = () => {
         <a href="#">Your Logo</a>
       </div>
       <div className="search-bar">
-        <input type="text" id="jobName" placeholder="Search for a professional" />
+        <input type="text" id="jobName" placeholder="Search" />
         <button type="button" className="search-but" onClick={handleSearch}>
           Search
         </button>

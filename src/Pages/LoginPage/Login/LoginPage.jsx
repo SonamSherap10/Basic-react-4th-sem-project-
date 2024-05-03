@@ -43,7 +43,7 @@ const LoginPage = ({ setUserRole }) => {
 
   return (
   <>
-   <button type='button' className='back-btn' onClick={()=>{
+   <button type='button' className='backk' onClick={()=>{
     setUserRole(localStorage.getItem('role')) 
     navigate("/")
   }}>Go Back</button>
@@ -59,7 +59,7 @@ const LoginPage = ({ setUserRole }) => {
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button type="button" onClick={handleLogin}>Login</button>
+        <button type="button" className='login' onClick={handleLogin}>Login</button>
         <button type="button" className="forgot-password" onClick={handleFP}>Forgot Password?</button>
       </form>
       <div className='sign-div'>

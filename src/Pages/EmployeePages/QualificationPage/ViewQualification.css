@@ -1,0 +1,38 @@
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  max-height: 600px; /* Set a maximum height for the image container */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+.image-group {
+  display: flex;
+}
+
+.qualification-image {
+  width: 600px;
+  height: 600px;
+  margin: 15px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.showname {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  border: 5px solid black;
+  padding: 5px;
+  margin-left: 30%;
+}
+
+.beck {
+  width: fit-content;
+  background-color:black;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size:17px;
+}

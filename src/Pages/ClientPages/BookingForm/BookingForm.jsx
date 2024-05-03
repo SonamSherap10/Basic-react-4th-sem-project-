@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import './BookingForm.css'
-import Header from "../Header/Header";
+import Header from "../../../Components/Header/Header";
 import axios from "axios";
-import withAuth from "../Auth/withAuth";
+import withAuth from "../../../Components/Auth/withAuth";
 
 const BookingForm = () => {
   const id = useLocation().state.id;

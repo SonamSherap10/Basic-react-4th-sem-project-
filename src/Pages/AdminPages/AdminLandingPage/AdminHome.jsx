@@ -23,6 +23,7 @@ const handleDelete = async (id) => {
   try {
     const token = localStorage.getItem('token');
     await axios.delete(`http://localhost:7878/admin/deleteBooking/${id}`, { headers: { Authorization: `${token}` }});
+    alert("Booking has been Deleted")
     getData();
   } catch (error) {
     console.error('Error deleting booking:', error);
@@ -87,7 +88,7 @@ const handleDelete = async (id) => {
                 <th>Rating</th>
                 <th>Comment</th>
                 <th>Completed In</th>
-                <th>Created At</th>
+                <th>Requested At</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -99,25 +100,23 @@ const handleDelete = async (id) => {
                   <td>{booking.customerId}</td>
                   <td>{booking.job}</td>
                   <td>{booking.jobDescription}</td>
-                  <td>{booking.workDay}</td>
+                  <td>{booking.workDay.split('T')[0]}</td>
                   <td>{booking.address}</td>
                   <td>{booking.isAccepted}</td>
                   <td>{booking.workStatus}</td>
                   <td>{booking.wagePerDay}</td>
                   <td>{booking.rating}</td>
                   <td>{booking.comment}</td>
-                  <td>{booking.completedIn}</td>
-                  <td>{booking.createdAt}</td>
-                  <td><button onClick={() => handleDelete(booking.id)}>Delete</button></td>
+                  <td>{booking.completedIn.split('T')[0]}</td>
+                  <td>{booking.createdAt.split('T')[0]}</td>
+                  <td><button className='dlt' onClick={() => handleDelete(booking.id)}>Delete</button></td>
                 </tr>
               ))}
             </tbody>
           </table>
           </div>
         </main>
-        <footer>
-          <p>&copy; 2024 Fix at Your Fingertips</p>
-        </footer>
+       
       </body>
     </>
   );

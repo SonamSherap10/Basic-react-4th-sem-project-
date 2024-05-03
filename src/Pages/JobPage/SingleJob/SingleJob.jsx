@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Header from '../../Components/Header/Header';
+import Header from '../../../Components/Header/Header';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -18,7 +18,6 @@ const SingleJob = () => {
         city : City
       }
     })
-    console.log(response.data.data)
     SetJobs(response.data.data)
   }
   
@@ -52,7 +51,7 @@ const SingleJob = () => {
                 <p className="wage">Wage : {job.Wage}</p>
                 <p className="booking-status">Status : {job.bookingStatus}</p>
               </div>
-              <button className="mb-10 ml-10vh inline-block px-10 py-10 text-2xl font-bold uppercase border-none rounded-md cursor-pointer text-yellow-500 bg-black shadow-md transition duration-300 hover:bg-gray-900" 
+              <button className="book" 
               onClick={()=>navigate(`/BookEmployee/${job.id}`,{ state:{name: job.username,wage:job.Wage,id:job.id},replace:true })} >Book</button>
               </div>
               </div>

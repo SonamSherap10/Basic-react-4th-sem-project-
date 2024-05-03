@@ -159,8 +159,8 @@ const Register = () => {
     <div className="register-container">
       <h2>Register</h2>
       <div className="register-buttons">
-        <button onClick={handleEmployeeClick}>Register as Employee</button>
-        <button onClick={handleClientClick}>Register as Client</button>
+        <button className="sub" onClick={handleEmployeeClick}>Register as Employee</button>
+        <button className="sub" onClick={handleClientClick}>Register as Client</button>
       </div>
       {showEmployeeForm && (
         <form className="employee-form" onSubmit={handleEmployeeSubmit}>
@@ -222,7 +222,7 @@ const Register = () => {
           />
           <br />
           <br />
-          <button type="submit">Register as Employee</button>
+          <button className="sub" type="submit">Register as Employee</button>
         </form>
       )}
       {showClientForm && (
@@ -274,7 +274,7 @@ const Register = () => {
           />
           <br />
           <br />
-          <button type="submit">Register as Client</button>
+          <button className="sub" type="submit">Register as Client</button>
         </form>
       )}
     </div>
