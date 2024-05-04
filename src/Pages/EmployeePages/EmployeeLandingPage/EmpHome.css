@@ -9,7 +9,7 @@ body {
   height: calc(100% - 90px); /* Adjusted to start below the header */
   width: 250px;
   position: fixed;
-  top: 90px;
+  top: 93px;
   left: -250px; /* Initially hidden */
   background-color: black;
   overflow-y: auto;
@@ -39,12 +39,12 @@ body {
   font-size: 40px;
   font-weight: bold;
   position: absolute;
-  top: 70px;
+  top: 90px;
   left: 30%;
 }
 
 .main-content {
-  margin-top: 30px;
+  margin-top: 60px;
   padding: 20px;
   overflow-y: auto; /* Add vertical scrolling */
 }
@@ -52,8 +52,8 @@ body {
 .toggle-sidebar {
   cursor: pointer;
   position: absolute;
-  top: 27px;
-  left: 10%;
+  top: 25px;
+  left: 8%;
 }
 
 table {

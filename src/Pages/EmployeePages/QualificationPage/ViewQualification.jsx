@@ -3,6 +3,8 @@ import './ViewQualification.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import fayftLogo from '@images/FIX AT YOUR FINGERTIPS (1).png';
+
 
 const ViewQualification = () => {
   const { empId } = useParams();
@@ -28,6 +30,7 @@ const ViewQualification = () => {
     <>
        <header>  
         <button className='beck' onClick={()=>navigate("/")}>Go Back</button>
+        <img className='lg' src={fayftLogo} alt="fayft logo" />
        <div className="showname"> {name} Qualifications</div>
        </header>
     <div className="image-container">

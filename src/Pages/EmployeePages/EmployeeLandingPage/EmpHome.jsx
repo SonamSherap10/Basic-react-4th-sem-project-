@@ -19,29 +19,46 @@ const EmpHome = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const getBookings = async() =>{
+  const getBookings = async () => {
     const token = localStorage.getItem('token');
-    const response  = await axios.get("http://localhost:7878/user/viewBookings",{headers:{Authorization :`${token}`}})
-    if(response.statusCode != 200){
-      console.log("No bookings Found")
+    try {
+      const response = await axios.get("http://localhost:7878/user/viewBookings", {
+        headers: { Authorization: `${token}` },
+      });
+      setBookings(response.data.data);
+    } catch (error) {
+      if (error.response && error.response.status === 414) {
+        alert("You are not verified yet. Please upload your qualifications for viewing");
+         navigate('/login');
+      } else {
+        console.error("Error fetching bookings:", error);
+      }
     }
-    console.log(response.data.data);
-     setBookings(response.data.data)
-  }
+  };
+  
 
-  const getBooked = async()=>{
+  const getBooked = async () => {
     const token = localStorage.getItem('token');
-    const response  = await axios.get("http://localhost:7878/user/viewBookedRequests",{headers:{Authorization :`${token}`}})
-     setBooked(response.data.data)
-     if(response.status === 404){
-      console.log("You Havent been booked")
-     }
-  }
+    try {
+      const response = await axios.get("http://localhost:7878/user/viewBookedRequests", {
+        headers: { Authorization: `${token}` },
+      });
+      setBooked(response.data.data);
+    } catch (error) {
+      if (error.response && error.response.status === 414) {
+        alert("You are not verified yet. Please upload your qualifications for viewing");
+        navigate('/login')
+      } else {
+        console.error("Error fetching booked data:", error);
+      }
+    }
+  };
+  
 
   const handleViewBookingRequests = () => {
+    getBookings()
     setShowBookingRequests(true);
     setShowBookedRequests(false);
-    getBookings()
   };
 
   const handleViewBookedRequests = () => {
@@ -75,7 +92,7 @@ const handleCompleted = async(id, status) =>{
     <table>
       <thead>
         <tr>
-          <th>Client id</th>
+          <th>Client</th>
           <th>Job Description</th>
           <th>Work Day</th>
           <th>Wage</th>
@@ -90,7 +107,7 @@ const handleCompleted = async(id, status) =>{
       <tbody>
       {bookings.map(request => (
           <tr key={request.id}>
-            <td>{request.customerId}</td>
+            <td><button className='acc'onClick={()=>navigate("/viewClient",{state:{id:request.customerId},replace:true})}>View Client</button></td>
             <td>{request.jobDescription}</td>
             <td>{request.workDay.split('T')[0]}</td>
             <td>{request.wagePerDay}</td>
@@ -110,7 +127,7 @@ const handleCompleted = async(id, status) =>{
     <table>
       <thead>
         <tr>
-          <th>Client id</th>
+          <th>Client</th>
           <th>Wage</th>
           <th>Province</th>
           <th>District</th>
@@ -126,7 +143,7 @@ const handleCompleted = async(id, status) =>{
       <tbody>
         {booked.map(request => (
           <tr key={request.id}>
-            <td>{request.customerId}</td>
+            <td><button className='acc'onClick={()=>navigate("/viewClient",{state:{id:request.customerId},replace:true})}>View Client</button></td>
             <td>{request.wagePerDay}</td>
             <td>{request.province}</td>
             <td>{request.district}</td>
@@ -151,7 +168,7 @@ const handleCompleted = async(id, status) =>{
         <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <a id='vbr' onClick={handleViewBookingRequests}>View Booking Requests</a>
           <a onClick={handleViewBookedRequests}>View Booked Requests</a>
-          <a href="/viewRating/:empId">View Rating</a>
+          <a href="/viewRating">View Rating</a>
           <a href="/updateQualifications">Your Qualifications</a>
         </div>
         <div className="main-content">
@@ -160,7 +177,6 @@ const handleCompleted = async(id, status) =>{
           {showBookedRequests && bookedRequestsTable}
         </div>
       </body>
-      <Footer />
     </>
   );
 };

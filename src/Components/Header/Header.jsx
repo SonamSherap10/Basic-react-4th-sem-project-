@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
+import fayftLogo from '@images/FIX AT YOUR FINGERTIPS (1).png';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Header = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <a href="#">Your Logo</a>
+      <img src={fayftLogo} alt="fayft logo" />
       </div>
       <div className="search-bar">
         <input type="text" id="jobName" placeholder="Search" />
@@ -80,7 +81,7 @@ const Header = () => {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <a href="/aboutPage">About</a>
         </li>
         <li>
           <a href="/jobs">Services</a>

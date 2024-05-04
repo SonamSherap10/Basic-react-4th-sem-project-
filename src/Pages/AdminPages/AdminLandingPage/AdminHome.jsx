@@ -5,30 +5,30 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 const AdminHome = () => {
-  const [Bookings , setBookings] = useState([])
+  const [Bookings, setBookings] = useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-const getData = async ()=>{
-  const token = localStorage.getItem('token');
-  const response  = await axios.get("http://localhost:7878/admin/viewBookings",{headers:{Authorization :`${token}`}})
-   setBookings(response.data.data)
-}
-
-
-const handleDelete = async (id) => {
-  try {
+  const getData = async () => {
     const token = localStorage.getItem('token');
-    await axios.delete(`http://localhost:7878/admin/deleteBooking/${id}`, { headers: { Authorization: `${token}` }});
-    alert("Booking has been Deleted")
-    getData();
-  } catch (error) {
-    console.error('Error deleting booking:', error);
+    const response = await axios.get("http://localhost:7878/admin/viewBookings", { headers: { Authorization: `${token}` } })
+    setBookings(response.data.data)
   }
-};
+
+
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      await axios.delete(`http://localhost:7878/admin/deleteBooking/${id}`, { headers: { Authorization: `${token}` } });
+      alert("Booking has been Deleted")
+      getData();
+    } catch (error) {
+      console.error('Error deleting booking:', error);
+    }
+  };
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -36,10 +36,10 @@ const handleDelete = async (id) => {
     alert("Logged out successfully");
     navigate('/login');
   };
- 
-  useEffect(()=>{
+
+  useEffect(() => {
     getData()
-  },[])
+  }, [])
   return (
     <>
       <body>
@@ -64,15 +64,16 @@ const handleDelete = async (id) => {
               )}
             </div>
           </nav>
+          <img className='lpp' src='./public/images/FIX AT YOUR FINGERTIPS (1).png'/>
           <h1>Fix at Your Fingertips</h1>
           <h2>Welcome Admin</h2>
           <button className="log" id="log" onClick={logout}>
             Log Out
           </button>
         </header>
-          <h1 >Booking Details</h1>
-          <main>
-            <div className="table-container"> <table>
+        <h1 >Booking Details</h1>
+        <main>
+          <div className="table-container"> <table>
             <thead>
               <tr>
                 <th>ID</th>
@@ -100,14 +101,16 @@ const handleDelete = async (id) => {
                   <td>{booking.customerId}</td>
                   <td>{booking.job}</td>
                   <td>{booking.jobDescription}</td>
-                  <td>{booking.workDay.split('T')[0]}</td>
+                  <td>{booking.workDay ? booking.workDay.split('T')[0] : 'NA'}</td>
                   <td>{booking.address}</td>
                   <td>{booking.isAccepted}</td>
                   <td>{booking.workStatus}</td>
                   <td>{booking.wagePerDay}</td>
                   <td>{booking.rating}</td>
                   <td>{booking.comment}</td>
-                  <td>{booking.completedIn.split('T')[0]}</td>
+                  <td>
+                    {booking.completedIn ? booking.completedIn.split('T')[0] : 'NA'}
+                  </td>
                   <td>{booking.createdAt.split('T')[0]}</td>
                   <td><button className='dlt' onClick={() => handleDelete(booking.id)}>Delete</button></td>
                 </tr>
@@ -116,7 +119,7 @@ const handleDelete = async (id) => {
           </table>
           </div>
         </main>
-       
+
       </body>
     </>
   );

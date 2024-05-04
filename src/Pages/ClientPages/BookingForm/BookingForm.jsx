@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import './BookingForm.css'
 import Header from "../../../Components/Header/Header";
@@ -6,67 +5,75 @@ import axios from "axios";
 import withAuth from "../../../Components/Auth/withAuth";
 
 const BookingForm = () => {
-  const id = useLocation().state.id;
-  const name = useLocation().state.name;
-  const wage = useLocation().state.wage;
+  const { state } = useLocation();
   const navigate = useNavigate();
-  const [description, setDescription] = useState("");
-  const [workDate, setWorkDate] = useState("");
-  const [homeAddress, setHomeAddress] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { id, wage } = state;
+    const token = localStorage.getItem("token");
+
+    const description = document.getElementById("description").value;
+    const workDate = document.getElementById("workDate").value;
+    const homeAddress = document.getElementById("homeAddress").value;
+
+  
+  const currentDate = new Date();
+  const selectedWorkDate = new Date(workDate);
+
+  if (selectedWorkDate < currentDate) {
+    alert("Work date cannot be less than the current date.");
+    return;
+  }
 
     try {
-      const formData = new FormData(e.currentTarget);
-      const data = Object.fromEntries(formData);
-
       const response = await axios.post(
         `http://localhost:7878/user/bookProfessionals/${id}`,
         {
           wagePerDay: wage,
-          jobDescription: data.description,
-          WorkDay: data.workDate,
-          address: data.homeAddress,
+          jobDescription: description,
+          WorkDay: workDate,
+          address: homeAddress,
+        },
+        {
+          headers: {
+            Authorization: token,
+          },
         }
       );
 
-      if (response.status === 201) {
+      if (response.status === 200) {
+        alert('Booking created successfully.Waiting for employee to verify')
         navigate("/");
-      } else {
-        alert("Something went wrong");
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong");
-    }
+      alert('You have already booked the employee');
+      }
   };
 
   return (
     <>
       <Header />
       <div className="container">
-        <h3>Book-Worker: {name}</h3>
+        <h3>Book-Worker: {state.name}</h3>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="description">Job Description:</label>
             <input
               type="text"
               id="description"
+              name="description"
               className="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="workDate">Work Date (dd/mm/yy):</label>
+            <label htmlFor="workDate">Work Date (Enter in correct format):</label>
             <input
-              type="text"
+              type="date"
               id="workDate"
+              name="workDate"
               className="workDate"
-              placeholder="dd/mm/yy"
-              value={workDate}
-              onChange={(e) => setWorkDate(e.target.value)}
+              placeholder="yy-mm-dd"
             />
           </div>
 
@@ -75,13 +82,12 @@ const BookingForm = () => {
             <input
               type="text"
               id="homeAddress"
+              name="homeAddress"
               className="homeAddress"
-              value={homeAddress}
-              onChange={(e) => setHomeAddress(e.target.value)}
             />
           </div>
           <div>
-            <label className="wage">Wage Per Day: {wage}</label>
+            <label className="wage">Wage Per Day: {state.wage}</label>
             <br />
           </div>
           <button type="submit">Confirm Booking</button>
@@ -91,4 +97,4 @@ const BookingForm = () => {
   );
 };
 
-export default withAuth(BookingForm ,'Client') 
+export default withAuth(BookingForm, 'Client');
