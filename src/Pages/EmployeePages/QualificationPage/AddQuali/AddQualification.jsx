@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Header from '../../../../Components/Header/Header';
-import Footer from '../../../../Components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import "./styles.css"
 
@@ -47,7 +46,6 @@ const AddQualification = () => {
           <button className='sbm' type="submit">Upload Images</button>
         </form>
       </div>
-      <Footer />
     </>
   );
 };

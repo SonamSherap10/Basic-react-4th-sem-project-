@@ -1,6 +1,6 @@
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/footer/Footer";
-
+import './AboutPage.css'
 import React from 'react'
 
 const AboutPage = () => {

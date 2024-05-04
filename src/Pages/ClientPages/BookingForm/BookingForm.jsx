@@ -16,7 +16,9 @@ const BookingForm = () => {
     const description = document.getElementById("description").value;
     const workDate = document.getElementById("workDate").value;
     const homeAddress = document.getElementById("homeAddress").value;
-
+    const Province = document.getElementById("Province").value;
+    const District = document.getElementById("District").value;
+    const City = document.getElementById("City").value;
   
   const currentDate = new Date();
   const selectedWorkDate = new Date(workDate);
@@ -34,6 +36,9 @@ const BookingForm = () => {
           jobDescription: description,
           WorkDay: workDate,
           address: homeAddress,
+          province: Province,
+          district: District,
+          city: City
         },
         {
           headers: {
@@ -86,6 +91,27 @@ const BookingForm = () => {
               className="homeAddress"
             />
           </div>
+          <div>
+            <label htmlFor="Province">Province (Optional) :</label>
+            <input
+              type="text"
+              id="Province"
+              name="Province"
+              className="Province"/>
+                 <label htmlFor="Province">District (Optional) :</label>
+            <input
+              type="text"
+              id="District"
+              name="Province"
+              className="Province"/>
+                 <label htmlFor="Province">City (Optional) :</label>
+            <input
+              type="text"
+              id="City"
+              name="Province"
+              className="Province"/>
+          </div>
+          
           <div>
             <label className="wage">Wage Per Day: {state.wage}</label>
             <br />
