@@ -68,7 +68,7 @@ const ViewCompleted = () => {
   return (
     <div>
       <Header />
-      <h2>View Completed Requests</h2>
+      <h6 className='vcb'>All Completed Requests</h6>
       <div className="table-container">
         <table>
           <thead>

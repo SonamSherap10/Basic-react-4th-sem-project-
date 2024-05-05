@@ -38,17 +38,15 @@ const SingleJob = () => {
                 <img src={`${job.profilePicture}`} alt="Profile Picture"/>
               </div>
               <div className="card-content">
-                <h2 className="username">Name : {job.username}</h2>
-                <p className="email">Email : {job.email}</p>
-                <p className="job-title">Job-Title : {job.jobTitle}</p>
-                <p className="phone-number">Phone.No : {job.phoneNumber}</p>
-                <p className="location">
-                  <span className="province">Province : {job.province}</span><br></br>
-                  <span className="district">District : {job.district}</span><br></br> 
-                  <span className="city">City : {job.city}</span>
-                </p>
-                <p className="wage">Wage : {job.Wage}</p>
-                <p className="booking-status">Status : {job.bookingStatus}</p>
+                  <p className="username">Name : {job.username}</p>
+                  <p className="email">Email : {job.email}</p>
+                  <p className="job-title">Job-Title : {job.jobTitle}</p>
+                  <p className="phone-number">Phone.No : {job.phoneNumber}</p>
+                  <p className="province">Province : {job.province}</p>
+                  <p className="district">District : {job.district}</p>
+                  <p className="city">City : {job.city}</p>
+                  <p className="wage">Wage : {job.Wage}</p>
+                  <p className="booking-status">Status : {job.bookingStatus}</p>
                 <div>
                 <button className='vqr' onClick={()=>navigate(`/viewQualification/${job.id}`)}>View Qualifications</button>
                 <button className='vqr'onClick={()=>navigate(`/viewRating/${job.id}`)}>View Rating</button>

@@ -40,7 +40,7 @@ const ViewCliBooked = () => {
   return (
     <div>
       <Header />
-      <h2>View Booked Workers</h2>
+      <h6 className='vcb'> Booked Workers</h6>
       <div className="table-container">
         <table>
           <thead>

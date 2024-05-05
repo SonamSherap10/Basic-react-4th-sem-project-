@@ -31,7 +31,7 @@ const ViewRating = () => {
     <>
       <Header />
       <div className="rating-table-container">
-        <h2>View Rating</h2>
+        <h5 className='vr'>View Rating :</h5>
         {ratingData && (
           <table className="rating-table">
             <tbody>

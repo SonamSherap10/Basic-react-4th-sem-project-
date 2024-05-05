@@ -73,7 +73,7 @@ const UnverifiedEmp = () => {
                 <td>{employee.city}</td>
                 <td>{employee.jobTitle}</td>
                 <td>{employee.description}</td>
-                <td>{employee.wage}</td>
+                <td>{employee.Wage}</td>
                 <td><button className="button-view-qualifications"onClick={() => navigate(`/viewQualification/${employee.id}`)} >View Qualifications</button></td>
                 <td><button className="button-approve" onClick={() => verify(employee.id, "ok")}>Approve</button></td>
                 <td><button className="button-delete" onClick={() => verify(employee.id, "notOk")}>Delete</button></td>

@@ -66,7 +66,7 @@ const AdminHome = () => {
           </nav>
           <img className='lpp' src='./public/images/FIX AT YOUR FINGERTIPS (1).png'/>
           <h1>Fix at Your Fingertips</h1>
-          <h2>Welcome Admin</h2>
+          <h3 className='wla'>Welcome Admin</h3>
           <button className="log" id="log" onClick={logout}>
             Log Out
           </button>

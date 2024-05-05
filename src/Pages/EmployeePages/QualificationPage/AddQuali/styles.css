@@ -11,9 +11,10 @@
   left: 35%;
 }
 
-h2 {
-  font-size: 24px;
+.adquali {
+  font-size: 28px;
   margin-bottom: 20px;
+  margin-left: 40vh;
 }
 
 input[type="file"] {

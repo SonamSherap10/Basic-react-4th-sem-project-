@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
 import { useNavigate } from 'react-router-dom';
+import fayftLogo from '@images/FIX AT YOUR FINGERTIPS (1).png';
 
 const LoginPage = ({ setUserRole }) => {
   const navigate = useNavigate();
@@ -48,6 +49,7 @@ const LoginPage = ({ setUserRole }) => {
     navigate("/")
   }}>Go Back</button>
     <div className="login-container">
+    <img className='lago' src={fayftLogo} alt="fayftLogo" />
       <h2>Login</h2>
       {error && <p className="error-message">{error}</p>}
       <form>

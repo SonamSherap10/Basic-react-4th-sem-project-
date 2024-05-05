@@ -40,7 +40,7 @@ const AddQualification = () => {
     <>
       <Header />
       <div>
-        <h2>Add Qualifications (you can enter only upto 15-images intotal)</h2>
+        <h5 className='adquali'>Add Qualifications (you can enter only upto 15-images intotal)</h5>
         <form className='frm' onSubmit={handleSubmit}>
           <input type="file" onChange={handleFileChange} multiple />
           <button className='sbm' type="submit">Upload Images</button>

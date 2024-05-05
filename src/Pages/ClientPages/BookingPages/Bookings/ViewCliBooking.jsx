@@ -42,7 +42,7 @@ const ViewCliBooking = () => {
   return (
     <div>
       <Header />
-      <h2>View Client Bookings</h2>
+      <h6 className='vcb'>View Bookings</h6>
       <div className="table-container">
         <table>
           <thead>

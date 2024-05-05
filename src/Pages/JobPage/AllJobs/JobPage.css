@@ -44,13 +44,13 @@
 }
 
 .username {
-  font-size: 1.5rem;
-  margin-top:-2px;
+  font-size: 20px;
   margin-right: 25px;
+  font-weight: bold;
 }
 
-.email, .job-title, .phone-number, .wage, .booking-status ,.location  {
-  font-weight:bold;
+.email, .job-title, .phone-number, .wage, .booking-status ,.province , .district ,.city  {
+  font-weight:10px;
   margin-left: 0px;
   font-size: 17px;
   margin-top :-8px;

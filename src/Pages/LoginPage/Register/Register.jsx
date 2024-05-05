@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import fayftLogo from '@images/FIX AT YOUR FINGERTIPS (1).png';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -92,7 +93,6 @@ const Register = () => {
     const cliDistrict = document.getElementById("cliDistrict").value;
     const cliCity = document.getElementById("cliCity").value;
     const cliProfilePic = document.getElementById("cliProfilePicture").files[0];
- 
     if (
       !cliUsername ||
       !cliEmail ||
@@ -157,7 +157,8 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h2>Register</h2>
+      <img className="lgr" src={fayftLogo} alt="" />
+      <h3 className="rgs">Register</h3>
       <div className="register-buttons">
         <button className="sub" onClick={handleEmployeeClick}>Register as Employee</button>
         <button className="sub" onClick={handleClientClick}>Register as Client</button>

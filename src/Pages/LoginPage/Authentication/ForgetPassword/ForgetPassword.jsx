@@ -57,7 +57,7 @@ const ForgetPassword = () => {
   return (
     <>
       <div className="forget-password-container">
-        <h2 className="forget-password-heading" id="headd">{responseMessage}</h2>
+        <h5 className="forget-password-heading" id="headd">{responseMessage}</h5>
         <div className="error-message-container">
           <span className="error-message" id="error"></span>
         </div>

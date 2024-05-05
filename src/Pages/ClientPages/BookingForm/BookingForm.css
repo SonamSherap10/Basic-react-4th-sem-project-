@@ -1,28 +1,29 @@
-.container {
+.containerzz {
   max-width: 600px;
   margin: 10px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  margin-top: 10px;
 }
 
-.container h3 {
+.containerzz h3 {
   margin-top: 0;
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
 }
 
-.container label {
+.containerzz label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
   color: black;
 }
 
-.container input[type="text"],
-.container input[type="date"] {
+.containerzz input[type="text"],
+.containerzz input[type="date"] {
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
@@ -30,7 +31,7 @@
   border-radius: 3px;
 }
 
-.container button[type="submit"] {
+.containerzz button[type="submit"] {
   background-color: black ;
   color: white;
   padding: 10px 20px;
@@ -39,7 +40,40 @@
   cursor: pointer;
 }
 
-.container button[type="submit"]:hover {
+.containerzz button[type="submit"]:hover {
   background-color: grey;
   cursor: pointer;
+}
+
+.provinces {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+/* Style for select dropdown when focused */
+.provinces:focus {
+  border-color: #007bff;
+}
+
+/* Style for select dropdown arrow */
+.provinces::-ms-expand {
+  display: none;
+}
+
+.provinces option {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Style for labels */
+label {
+  margin-bottom: 5px;
+  display: block;
 }

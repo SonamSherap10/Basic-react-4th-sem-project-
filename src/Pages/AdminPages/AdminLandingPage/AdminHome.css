@@ -18,13 +18,13 @@ header {
   position: relative; /* Add position: relative */
 }
 
-header h2 {
+.wla {
   margin: 0;
+  width: fit-content; 
   font-size: 25px;
   position: absolute;
-  text-align: center;
   top: 12px;
-  right: 25vh;
+  right: 28vh;
   padding: 8px;
   background-color: grey;
   font-weight: bold;
